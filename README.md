@@ -8,7 +8,7 @@ It is not intended to be used in a production environment, obviously, since it l
 
 MVC stands for ***Model-View-Controller***. It's an architectural pattern used to organize the main logic of a program in distinct classes in order to separate the *business logic* (i.e. database, but non only), from the *presentation* (i.e. web, but not only).
 
-Thus, the **Model** class manages mainly all the operations involved with data source (database, sensors, etc.) and create the objects with the data to be presented. The **View** organize the data computed by the Model into, for example, a web page. The **Controller** supervise all the operations in order to check which methods execute from a Model and which View use for the presentation (html, json, xml, etc).  
+Thus, the **Model** class manages mainly all the operations involved with the business logic and data access (database, sensors, etc.) and creates the objects with the data to be presented. The **View** organizes the data computed by the Model into, for example, a web page. The **Controller** supervises all the operations in order to check which methods execute from a Model and which View use for the presentation (html, json, xml, etc).  
 
 ## Main structure
 
