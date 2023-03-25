@@ -59,7 +59,7 @@
         <select name="region_id" id="region_id" class="form-control">
           <option value="0">Choose a region</option>
           <?php
-          foreach ($this->model->regions as $region) {
+          foreach ($this->model->getRegions() as $region) {
             $selected = $region->region_id == $this->model->region_id ? "selected" : "";
             echo "<option value=\"{$region->region_id}\" {$selected}>
                           {$region->continent_name} - {$region->region_name}
