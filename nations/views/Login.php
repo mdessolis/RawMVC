@@ -32,6 +32,6 @@ defined('APP') or die();
     <button type="submit" class="btn btn-large">Login</button>
   </p>
 </form>
-<?php if(!empty($this->message)) { ?>
-<h2 class="text-bg-danger text-center"><?= $this->message() ?></h2>
+<?php if(!empty($this->msg)) { ?>
+<h2 class="text-bg-danger text-center"><?= $this->msg ?></h2>
 <?php } ?>

@@ -22,6 +22,7 @@ class ControllerHome{
   }
 
   function checkLogin() {
+    $this->view = "Home";
     $username = $_POST['username'] ?? $_COOKIE['username'] ?? '';
     $password = $_POST['password'] ?? $_COOKIE['password'] ?? '';
     if ($user = $this->model->check($username, $password)){
@@ -30,8 +31,10 @@ class ControllerHome{
         setcookie('username', $username, time()+3600*24);
         setcookie('password', $password, time()+3600*24);
       }
+    } else {
+      $this->msg = "Nome utente e/o password errati";
+      $this->view = "Login";
     }
-    $this->view = "Home";
     $this->display();
   }
 
