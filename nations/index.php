@@ -15,7 +15,10 @@ require '../config.php';
 require 'libs/DB.php';
 
 // HTMLTable is a simple class used to generate an HTML table from a list
-require 'libs/HTMLTable.php';
+require 'libs/Tabella.php';
+
+// Controller is an abstract class used as ancestor of every other Controller
+require 'libs/Controller.php';
 
 // REST is a trait class which could be associated to a Controller to provide it with RESTful webservice functions
 require 'controllers/REST.php';
@@ -24,7 +27,7 @@ require 'controllers/REST.php';
    option tells which Controller execute and task which function inside the controller.
    The default option is Home, corresponding to ControllerHome
 */
-$option = ucfirst($_REQUEST['option'] ?? 'Home');
+$option = lcfirst($_REQUEST['option'] ?? 'home');
 
 // the default task is display. Every controller should declare one
 $task = $_REQUEST['task'] ?? 'display';
@@ -33,20 +36,20 @@ $task = $_REQUEST['task'] ?? 'display';
    page.
    This block could be changed according to different use cases. For example we could provide public access
    for some tasks or more granulated access depending on user role
-*/
+
 if (empty($_SESSION['user'])){
   if ($task != 'checkLogin'){
     $option = "Home";
     $task="login";
   }
 }
-
+*/
 // $controller_name contains the name of the controller class to be activated
-$controller_name = "Controller".$option;
+$controller_name = "Controller".ucfirst($option);
 
 // check if the controller class exists in the controllers folder
-if (is_file("controllers/{$controller_name}.php")){
-  require "controllers/{$controller_name}.php";
+if (is_file("components/{$option}/{$controller_name}.php")){
+  require "components/{$option}/{$controller_name}.php";
 } else {
   die ("Wrong operation");
 }
