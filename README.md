@@ -41,7 +41,7 @@ Anyway, at the moment the proposed structure is the following:
        Tabella.php
        Controller.php
 
-As you can see there's a root page called **index.php** which has to be always the starting point of the entire application. It defines some constants used in the other pages, includes the main MVC classes and calls the Home or the requested Controller.
+As you can see there's a root page called **index.php** which has to be always the starting point of the entire application. It defines some constants used in the other pages, includes the main MVC classes and calls the Home or the requested Controller. A very basic page could be the following:
 
     <?php
     define('APP',1);
