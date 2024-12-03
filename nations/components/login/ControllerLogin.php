@@ -3,6 +3,11 @@ defined('APP') or die();
 
 class ControllerLogin extends Controller{
   
+  function display() {
+    $this->view = "LoginNoBS";
+    parent::display();
+  }
+
   function checkLogin() {
     $username = $_POST['username'] ?? $_COOKIE['username'] ?? '';
     $password = $_POST['password'] ?? $_COOKIE['password'] ?? '';
@@ -16,11 +21,11 @@ class ControllerLogin extends Controller{
     } else {
       $this->tpl->msg = "Nome utente e/o password errati";
     }
-    parent::display();
+    $this->display();
   }
 
   function logout(){
     unset($_SESSION['user']);
-    parent::display();
+    $this->display();
   }
 }

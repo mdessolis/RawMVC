@@ -14,7 +14,7 @@ $logged = !empty($_SESSION['user']);
     <link href="template/stile.css" rel="stylesheet">
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <header>
         <h1 class="text-center">DB Nations</h1>
       </header>
@@ -24,7 +24,7 @@ $logged = !empty($_SESSION['user']);
           <?php if($logged) { ?>
             <p>Welcome <b><?= $_SESSION['user']['name'] ?></b></p>
           <?php } ?>
-          <ul class="nav nav-pills nav-fill">
+          <ul class="nav nav-pills nav-fill flex-column">
             <li class="nav-item">
               <a class="nav-link" href="?">
                 <span class="bi-house"></span> Home
@@ -39,7 +39,7 @@ $logged = !empty($_SESSION['user']);
                 <a class="nav-link" href="?option=login&task=logout">Logout</a>
               <?php } ?>
             </li>
-            <li class="nav-item"><a class="nav-link" href="?option=listContinents">List continents</a></li>
+            <?php if(grant("listContinents")) { ?><li class="nav-item"><a class="nav-link" href="?option=listContinents">List continents</a></li><?php } ?>
             <li class="nav-item"><a class="nav-link" href="?option=Continents">Continents</a></li>
             <li class="nav-item"><a class="nav-link" href="?option=Countries">Countries</a></li>
             <li class="nav-item"><a class="nav-link" href="?option=CountriesFlags">Countries & Flags</a></li>
@@ -48,7 +48,9 @@ $logged = !empty($_SESSION['user']);
         </nav>
         <section class="col-10 p-2">
           <?php
-          include("components/{$this->option}/View{$this->view}.php");
+           
+            include("components/{$this->option}/View{$this->view}.php");
+          
           ?>
         </section>
       </main>

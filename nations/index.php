@@ -21,7 +21,7 @@ require 'libs/Tabella.php';
 require 'libs/Controller.php';
 
 // REST is a trait class which could be associated to a Controller to provide it with RESTful webservice functions
-require 'controllers/REST.php';
+require 'libs/REST.php';
 
 /* All the routing inside the application is managed with two querystring parameters, option and task
    option tells which Controller execute and task which function inside the controller.
@@ -32,18 +32,19 @@ $option = lcfirst($_REQUEST['option'] ?? 'home');
 // the default task is display. Every controller should declare one
 $task = $_REQUEST['task'] ?? 'display';
 
-/* if we need an access reserved for only authenticated users reroute the task and option to the login
-   page.
-   This block could be changed according to different use cases. For example we could provide public access
-   for some tasks or more granulated access depending on user role
+// the controllers array contains the list of the controllers and the roles allowed to access them
+$controllers = [
+  "login" => [],
+  "home" => [],
+  "listContinents" => ['admin'],
+  "continents" => ['admin'],
+  "countriesFlags" => ['admin'],
+];
 
-if (empty($_SESSION['user'])){
-  if ($task != 'checkLogin'){
-    $option = "Home";
-    $task="login";
-  }
+// if the user is not allowed to access the requested controller the login controller will be activated
+if (!grant($option)){
+  header("Location: ?option=login");
 }
-*/
 // $controller_name contains the name of the controller class to be activated
 $controller_name = "Controller".ucfirst($option);
 
@@ -64,3 +65,10 @@ if (method_exists($controller,$task)) {
   $controller->display();
 }
 
+function grant($option){
+  global $controllers;
+  if (count($controllers[$option] ?? [])==0){
+    return true;
+  } 
+  return in_array($_SESSION['user']['role'] ?? "", $controllers[$option] ??[]);
+}
