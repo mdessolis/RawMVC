@@ -1,14 +1,14 @@
 # RawMVC
 
-This is a simple php MVC structure I'm planning to use with my students.
+This is a simple php MVC structure I plan to use with my students.
 
-It is not intended to be used in a production environment, obviously, since it lacks several patterns and functionalities. The aim is just to give a starting point learning this framework.   
+It is not intended to be used in a production environment, obviously, as it lacks several patterns and functionalities. The aim is to provide a starting point learning this framework.   
 
 ## Principles of MVC
 
 MVC stands for ***Model-View-Controller***. It's an architectural pattern used to organize the main logic of a program in distinct classes in order to separate the *business logic* (i.e. database, but non only), from the *presentation* (i.e. web, but not only).
 
-Thus, the **Model** class manages mainly all the operations involved with the business logic and data access (database, sensors, etc.) and creates the objects with the data to be presented. The **View** organizes the data computed by the Model into, for example, a web page. The **Controller** supervises all the operations in order to check which methods execute from a Model and which View use for the presentation (html, json, xml, etc).  
+Thus, the **Model** class mainly manages all the operations involved with the business logic and data access (database, sensors, etc.) and creates the objects with the data to be presented. The **View** organizes the data computed by the Model into, for example, a web page. The **Controller** supervises all the operations in order to check which methods execute from a Model and which View use for the presentation (html, json, xml, etc).  
 
 ## Main structure
 
@@ -16,7 +16,7 @@ This example uses a directory structure in which controllers, models and views a
 
 It is possible, with a few changes in the code, to give a different structure. For example, create a MVC tree for each module.
 
-Anyway, at the moment the proposed structure is the following:
+Anyway, at the moment the proposed structure is as follows:
 
     index.php
     
@@ -78,7 +78,7 @@ As you can see there's a root page called **index.php** which has to be always t
       $controller->default();
     }
 
-The constant APP is used by the other pages in order to check that that page is called by index.php. Thus, every other page should start with
+The constant APP is used by the other pages to check that they are called by index.php. Thus, every other page should start with the following code:
 
     <?php defined('APP') or die(); ?>
 
