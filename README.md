@@ -19,23 +19,29 @@ It is possible, with a few changes in the code, to give a different structure. F
 Anyway, at the moment the proposed structure is the following:
 
     index.php
+    
     (dir) home
        ControllerHome.php
        ModelHome.php
        ViewHome.php
+    
     (dir) login
        ControllerLogin.php
        ModelLogin.php
        ViewLogin.php
+    
     (dir) option1
        ControllerOption1.php
        ModelOption1.php
        ViewOption1.php
        ViewOption1-1.php
+    
     (dir) template
        template.php
        stile.css
+    
     (dir) bootstrap
+    
     (dir) libs
        DB.php
        Tabella.php
