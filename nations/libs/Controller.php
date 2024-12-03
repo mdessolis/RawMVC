@@ -13,7 +13,7 @@ abstract class Controller {
 
   function __construct()
   {
-    $this->tpl = new class{}; // empty object
+    $this->tpl = []; // empty object
     $option=$_REQUEST['option'] ?? "Home";
     require("components/".lcfirst($option)."/Model".ucfirst($option).".php");
     $model_name = "Model".ucfirst($option);

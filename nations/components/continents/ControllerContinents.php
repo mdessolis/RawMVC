@@ -10,7 +10,7 @@ class ControllerContinents extends Controller {
 
   public function display()
   {
-    $this->tpl->list = $this->model->getList();
+    $this->tpl['list'] = $this->model->getList();
     parent::display();
   }
   public function register()

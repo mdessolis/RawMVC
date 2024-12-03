@@ -34,17 +34,17 @@
 <section class="p-3">
     <?php
     
-    $table = new Tabella;
-    foreach ($this->tpl->list as $row) {
+    $table = new HTMLTable;
+    foreach ($this->tpl['list'] as $row) {
       $baseqs = "option=continents&id={$row->continent_id}";
-      $row->edit = "<a href=\"?{$baseqs}&task=edit\"><span class=\"bi-pencil\" role=\"img\" aria-label=\"Edit\"></span></a> ";
-      $row->edit .= "<a href=\"?{$baseqs}&task=canc\"><i class=\"bi-trash\"></i></a>";
+      $row->edit = "<a href=\"?{$baseqs}&task=edit\"><span class=\"bi-pencil\" role=\"img\" aria-label=\"Edit\"></span></a>";
+      $row->edit .= " <a href=\"?{$baseqs}&task=canc\"><i class=\"bi-trash\"></i></a>";
     }
-    $table->setColonne([
+    $table->setColumns([
         'continent_id' => 'ID', 
         'name'=>'Denominazione',
         'edit'=>'']);
-    $table->setElenco($this->tpl->list);
+    $table->setList($this->tpl['list']);
     echo $table;
     ?>
 </section>

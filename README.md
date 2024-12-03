@@ -18,26 +18,28 @@ It is possible, with a few changes in the code, to give a different structure. F
 
 Anyway, at the moment the proposed structure is the following:
 
-    index.php
-    config.php
-    controllers
-       Controller.php
-       ControllerHome.php
-       ControllerContinents.php
-       ...
-    models
-       ModelContinents.php
-       ...
-    views
-       template.php
-       PageHome.php
-       PageContinents.php
-       ...
-    utils
-       DB.php
-       HTMLTable.php
-    sql
-       nation.sql
+   index.php
+   (dir) home
+      ControllerHome.php
+      ModelHome.php
+      ViewHome.php
+   (dir) login
+      ControllerLogin.php
+      ModelLogin.php
+      ViewLogin.php
+   (dir) option1
+      ControllerOption1.php
+      ModelOption1.php
+      ViewOption1.php
+      ViewOption1-1.php
+   (dir) template
+      template.php
+      stile.css
+   (dir) bootstrap
+   (dir) libs
+      DB.php
+      Tabella.php
+      Controller.php
 
 As you can see there's a root page called **index.php** which has to be always the starting point of the entire application. It defines some constants used in the other pages, includes the main MVC classes and calls the Home or the requested Controller.
 

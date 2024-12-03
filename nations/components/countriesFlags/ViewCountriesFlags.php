@@ -93,8 +93,8 @@
 <section class="p-3">
   <?php
   $list = $this->model->getList();
-  $table = new Tabella();
-  $table->setColonne([
+  $table = new HTMLTable();
+  $table->setColumns([
       'country_id'=>'ID', 
       'name'=>'Name', 
       'area'=>'Area', 
@@ -109,7 +109,7 @@
     $row->edit = "<a href=\"?{$baseqs}&task=edit\"><span class=\"bi-pencil\" role=\"img\" aria-label=\"Edit\"></span></a> ";
     $row->edit .= "<a href=\"?{$baseqs}&task=canc\"><i class=\"bi-trash\"></i></a>";
   }
-  $table->setElenco($list);
+  $table->setList($list);
   echo $table;
   ?>
 </section>

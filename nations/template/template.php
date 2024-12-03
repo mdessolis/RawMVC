@@ -41,9 +41,8 @@ $logged = !empty($_SESSION['user']);
             </li>
             <?php if(grant("listContinents")) { ?><li class="nav-item"><a class="nav-link" href="?option=listContinents">List continents</a></li><?php } ?>
             <li class="nav-item"><a class="nav-link" href="?option=Continents">Continents</a></li>
-            <li class="nav-item"><a class="nav-link" href="?option=Countries">Countries</a></li>
             <li class="nav-item"><a class="nav-link" href="?option=CountriesFlags">Countries & Flags</a></li>
-            <li class="nav-item"><a class="nav-link" href="?option=Countries&task=defaultjs">Countries JS</a></li>
+            <li class="nav-item"><a class="nav-link" href="?option=CountriesFlags&task=CountriesJS">Countries JS</a></li>
           </ul>
         </nav>
         <section class="col-10 p-2">

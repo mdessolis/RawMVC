@@ -15,7 +15,7 @@ require '../config.php';
 require 'libs/DB.php';
 
 // HTMLTable is a simple class used to generate an HTML table from a list
-require 'libs/Tabella.php';
+require 'libs/HTMLTable.php';
 
 // Controller is an abstract class used as ancestor of every other Controller
 require 'libs/Controller.php';
@@ -36,9 +36,9 @@ $task = $_REQUEST['task'] ?? 'display';
 $controllers = [
   "login" => [],
   "home" => [],
-  "listContinents" => ['admin'],
-  "continents" => ['admin'],
-  "countriesFlags" => ['admin'],
+  "listContinents"  => [],
+  "continents"      => [],
+  "countriesFlags"  => [],
 ];
 
 // if the user is not allowed to access the requested controller the login controller will be activated
