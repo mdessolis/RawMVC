@@ -19,7 +19,7 @@ class ControllerLogin extends Controller{
       }
       header("Location: ?");
     } else {
-      $this->tpl->msg = "Nome utente e/o password errati";
+      $this->tpl['msg'] = "Nome utente e/o password errati";
     }
     $this->display();
   }

@@ -32,6 +32,6 @@ defined('APP') or die();
     <button type="submit" class="btn btn-primary">Login</button>
   </p>
 </form>
-<?php if(!empty($this->tpl->msg)) { ?>
-<h2 class="text-bg-danger text-center"><?= $this->tpl->msg ?></h2>
+<?php if (!empty($this->tpl['msg'])) { ?>
+  <h2 class="text-bg-danger text-center"><?= $this->tpl['msg'] ?></h2>
 <?php } ?>
